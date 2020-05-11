@@ -2,6 +2,18 @@ from .pages.product_page import ProductPage
 import time
 import pytest
 
+class TestUserAddToBasketFromProductPage():
+    def test_user_cant_see_success_message(self, browser):
+        link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
+        product_page = ProductPage(browser, link)
+        product_page.open()
+        product_page.should_not_be_success_message()
+
+    def test_user_can_add_product_to_basket(self, browser):    
+        link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019"    
+        product_page = ProductPage(browser, link)
+        product_page.open()
+        product_page.add_to_bucket()
 
 @pytest.mark.parametrize('link', ["http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0",
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer1",
@@ -19,6 +31,7 @@ def test_guest_can_add_product_to_basket(browser, link):
     product_page = ProductPage(browser, link)
     product_page.open()
     product_page.add_to_bucket()
+
 @pytest.mark.skip
 def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
     link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
@@ -26,6 +39,7 @@ def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
     product_page.open()
     product_page.add_to_bucket()
     product_page.should_not_be_success_message()
+
 @pytest.mark.skip
 def test_guest_cant_see_success_message(browser):
     link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
@@ -33,6 +47,7 @@ def test_guest_cant_see_success_message(browser):
     product_page.open()
     product_page.should_not_be_success_message()
 @pytest.mark.skip
+
 def test_message_disappeared_after_adding_product_to_basket(browser):
     link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
     product_page = ProductPage(browser, link)
