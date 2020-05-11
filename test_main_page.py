@@ -1,7 +1,7 @@
 import pytest
 from .pages.main_page import MainPage
 from .pages.login_page import LoginPage
-from .pages.busket_page import BusketPage
+from .pages.basket_page import BasketPage
 from .pages.locators import MainPageLocators
 from .pages.locators import ProductPageLocators
 
@@ -24,15 +24,16 @@ class TestLoginFromMainPage():
 def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
     main_page = MainPage(browser, MainPageLocators.BASIC_MAIN_PAGE_LINK)
     main_page.open()
-    main_page.go_to_busket()
-    busket_page = BusketPage(browser, browser.current_url)
-    busket_page.should_be_empty()
-    busket_page.should_be_empty_message()
+    main_page.go_to_basket()
+    basket_page = BasketPage(browser, browser.current_url)
+    basket_page.should_be_empty()
+    basket_page.should_be_empty_message()
 
+@pytest.mark.need_review
 def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     main_page = MainPage(browser, ProductPageLocators.PRODUCT_PAGE_LINK)
     main_page.open()
-    main_page.go_to_busket()
-    busket_page = BusketPage(browser, browser.current_url)
-    busket_page.should_be_empty()
-    busket_page.should_be_empty_message()
+    main_page.go_to_basket()
+    basket_page = BasketPage(browser, browser.current_url)
+    basket_page.should_be_empty()
+    basket_page.should_be_empty_message()

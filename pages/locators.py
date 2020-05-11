@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
-    BUSKET_LINK = (By.CSS_SELECTOR, '[href="/en-gb/basket/"]')
+    BASKET_LINK = (By.CSS_SELECTOR, '[href="/en-gb/basket/"]')
     USER_ICON = (By.CSS_SELECTOR, ".icon-user")
 
 class MainPageLocators():    
@@ -22,11 +22,11 @@ class ProductPageLocators():
     ADD_BTN = (By.CSS_SELECTOR, 'button[value="Add to basket"]')
     PRODUCT_PRICE = (By.CSS_SELECTOR, '.product_main>p.price_color')
     PRODUCT_NAME = (By.CSS_SELECTOR, '.product_main>h1')
-    BUSKET_PRODUCT_NAME = (By.CSS_SELECTOR, '.alertinner>strong')
-    BUSKET_PRODUCT_PRICE = (By.CSS_SELECTOR, '.alertinner>p>strong')
+    BASKET_PRODUCT_NAME = (By.CSS_SELECTOR, '.alertinner>strong')
+    BASKET_PRODUCT_PRICE = (By.CSS_SELECTOR, '.alertinner>p>strong')
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, '.alertinner ')
     
 
-class BusketPageLocators():
-    EMPTY_BUSKET_MSG = (By.XPATH, '//*[contains(text(), "Your basket is empty")]')
-    ITEMS_IN_BUSKET = (By.CSS_SELECTOR,".basket-items")
+class BasketPageLocators():
+    EMPTY_BASKET_MSG = (By.XPATH, '//*[contains(text(), "Your basket is empty")]')
+    ITEMS_IN_BASKET = (By.CSS_SELECTOR,".basket-items")
